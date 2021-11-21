@@ -8,11 +8,13 @@
     top: 80px;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    scrollbar-width: none;
+    scrollbar-width: none; //hidden scrollbar for firefox
     &::-webkit-scrollbar {
+      //hidden scrollbar for chrome and other browsers
       display: none;
     }
     > * {
+      /*For each element inside .sections*/
       width: 100vw;
       height: calc(100vh - 80px);
       scroll-snap-align: start;
