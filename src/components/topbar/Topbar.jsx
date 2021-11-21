@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import './topbar.scss';
 import logo from '../../images/logo.svg';
-import { Person, Mail } from '@material-ui/icons';
+import { Person, Mail, GitHub } from '@material-ui/icons';
+// import GitHubIcon from '@mui/icons-material/GitHub';
 
-const Topbar = () => {
+const Topbar = (props) => {
+  const { open, setOpen } = props;
   return (
-    <div className='topbar'>
-      <div className='wrapper'>
+    <header className={'topbar ' + (open && 'active')}>
+      <nav className='wrapper'>
         <div className='left'>
           <a href='#intro' className='logo'>
             <img className='logo-image' src={logo} alt='logo' />
@@ -22,17 +24,21 @@ const Topbar = () => {
             <Mail className='icon' />
             <span>zarei.massoumeh@gmail.com</span>
           </div>
+          <div className='itemContainer'>
+            <GitHub className='icon' />
+            <span>https://github.com/MaSsoumeh</span>
+          </div>
         </div>
 
         <div className='right'>
-          <div className='hamburger'>
+          <div className='hamburger' onClick={() => setOpen(!open)}>
             <span className='line1'></span>
             <span className='line2'></span>
             <span className='line3'></span>
           </div>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
