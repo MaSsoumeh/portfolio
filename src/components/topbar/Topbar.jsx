@@ -26,7 +26,9 @@ const Topbar = (props) => {
           </div>
           <div className='itemContainer'>
             <GitHub className='icon' />
-            <span>https://github.com/MaSsoumeh</span>
+            <span>
+              <a href='https://github.com/MaSsoumeh'>MaSsoumeh</a>
+            </span>
           </div>
         </div>
 
