@@ -22,12 +22,23 @@ const Topbar = (props) => {
           </div>
           <div className='itemContainer'>
             <Mail className='icon' />
-            <span>zarei.massoumeh@gmail.com</span>
+            <span>
+              <a className='link' href='mailto:zarei.massoumeh@gmail.com'>
+                zarei.massoumeh@gmail.com
+              </a>
+            </span>
           </div>
           <div className='itemContainer'>
             <GitHub className='icon' />
             <span>
-              <a href='https://github.com/MaSsoumeh'>MaSsoumeh</a>
+              <a
+                className='link'
+                target='_blank'
+                rel='noreferrer'
+                href='https://github.com/MaSsoumeh'
+              >
+                MaSsoumeh
+              </a>
             </span>
           </div>
         </div>
