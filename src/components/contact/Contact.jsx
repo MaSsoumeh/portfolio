@@ -1,7 +1,7 @@
-import './contact.scss';
+import "./contact.scss";
 
 const Contact = () => {
-  return <div className='contact' id='contact'></div>;
+  return <article className="contact" id="contact"></article>;
 };
 
 export default Contact;

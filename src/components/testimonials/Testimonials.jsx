@@ -1,7 +1,7 @@
-import './testimonials.scss';
+import "./testimonials.scss";
 
 const Testimonials = () => {
-  return <div className='testimonials' id='testimonials'></div>;
+  return <article className="testimonials" id="testimonials"></article>;
 };
 
 export default Testimonials;

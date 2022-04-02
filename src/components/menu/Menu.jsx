@@ -1,32 +1,72 @@
-import './menu.scss';
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
+import "./menu.scss";
 
+const menuItems = [
+  {
+    title: "Home",
+    hrefVal: "#intro",
+    id: "item1",
+  },
+  {
+    title: "My Skills",
+    hrefVal: "#skills",
+    id: "item2",
+  },
+  {
+    title: "Works",
+    hrefVal: "#works",
+    id: "item3",
+  },
+  {
+    title: "Testimonials",
+    hrefVal: "#testimonials",
+    id: "item4",
+  },
+  {
+    title: "Contact",
+    hrefVal: "#contact",
+    id: "item5",
+  },
+];
 const Menu = (props) => {
-  const { open, setOpen } = props;
+  const parentEl = useRef();
+
+  const { menuOpen, setMenuOpen } = props;
   const clickHandler = () => {
-    setOpen(false);
+    setMenuOpen(false);
   };
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+    menuOpen &&
+      tl
+        .fromTo("#item1", { x: -170 }, { x: 0 })
+        .fromTo("#item2", { x: -170 }, { x: 0 })
+        .fromTo("#item3", { x: -170 }, { x: 0 })
+        .fromTo("#item4", { x: -170 }, { x: 0 })
+        .fromTo("#item5", { x: -170 }, { x: 0 });
+  }, [menuOpen]);
   return (
-    <header className={'menu ' + (open && 'active')}>
-      <nav className='nav'>
+    <section className={"menu " + (menuOpen && "active")}>
+      <nav className="nav" ref={parentEl}>
         <ul>
-          <li onClick={clickHandler}>
-            <a href='#intro'>Home</a>
-          </li>
-          <li onClick={clickHandler}>
-            <a href='#portfolio'>Portfolio</a>
-          </li>
-          <li onClick={clickHandler}>
-            <a href='#works'>Works</a>
-          </li>
-          <li onClick={clickHandler}>
-            <a href='#testimonials'>Testimonials</a>
-          </li>
-          <li onClick={clickHandler}>
-            <a href='#contact'>Contact</a>
-          </li>
+          {menuItems.map((item) => {
+            return (
+              <li
+                id={item.id}
+                className="menuItem"
+                key={item.title}
+                onClick={clickHandler}
+              >
+                <a href={item.hrefVal}>{item.title}</a>
+                <hr className="hLine"></hr>
+              </li>
+            );
+          })}
         </ul>
       </nav>
-    </header>
+    </section>
   );
 };
 export default Menu;

@@ -1,3 +1,81 @@
+@import "../../global.scss";
+
 .intro {
-  background-color: lightpink;
+  display: flex;
+  background-color: $secondaryColor;
+  .left {
+    flex: 0.5;
+    overflow: hidden;
+    .imgContainer {
+      background-color: $contrastColor;
+      border-start-end-radius: 50%;
+      border-end-end-radius: 50%;
+      display: flex;
+      align-items: center;
+      transition: background-color 2s ease;
+      img {
+        height: 100vh;
+      }
+      div {
+        font-family: "Great Vibes", cursive;
+        // color: $mainColor;
+        font-size: 30px;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 200px;
+      }
+    }
+    .activeContainer {
+      transition: all 2s ease;
+      background-color: $mainLightColor;
+    }
+  }
+  .right {
+    flex: 0.5;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    .wrapper {
+      height: 100%;
+      color: $mainColor;
+      width: 100%;
+      padding-left: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        font-size: 50px;
+        margin: 10px 0;
+      }
+      h2 {
+        font-size: 35px;
+      }
+      h3 {
+        font-size: 30px;
+      }
+      span {
+        margin-top: 20px;
+        font-size: 30px;
+        color: $contrastColor;
+        height: 30px;
+        font-weight: 600;
+      }
+    }
+    a {
+      position: absolute;
+      bottom: 30px;
+      left: 40%;
+      .arrowIcon {
+        width: 50px;
+        height: 50px;
+        color: $mainColor;
+        animation: arrowBlink 2s infinite;
+      }
+      @keyframes arrowBlink {
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }

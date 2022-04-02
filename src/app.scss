@@ -3,7 +3,7 @@
   .sections {
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: darksalmon;
+    background-color: #787a91;
     position: relative;
     top: 80px;
     scroll-behavior: smooth;
@@ -18,6 +18,7 @@
       width: 100vw;
       height: calc(100vh - 80px);
       scroll-snap-align: start;
+      font-family: "Roboto", sans-serif;
     }
   }
 }

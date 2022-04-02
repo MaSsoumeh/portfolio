@@ -1,6 +1,11 @@
-@import '../../global.scss';
+@import "../../global.scss";
 .topbar {
-  background-color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(183, 184, 186, 1) 0%,
+    rgba(183, 184, 186, 1) 17%,
+    rgba(255, 249, 218, 1) 100%
+  );
   color: $mainColor;
   transition: all 1s ease;
   height: 80px;
@@ -8,7 +13,7 @@
   position: fixed;
   top: 0;
   z-index: 3;
-
+  // box-shadow: 0px 4px 12px #1b1b1b;
   .wrapper {
     padding: 10px 30px;
     display: flex;
@@ -22,24 +27,45 @@
       .logo {
         text-decoration: none;
         color: inherit;
-        .logo-image {
-          width: 50px;
-          height: 50px;
+        font-family: "Satisfy", cursive;
+        &:hover {
+          color: $mainDarkColor;
         }
+      }
+      .activeLogo {
+        transition: all 2s ease;
+        color: $secondaryColor;
       }
     }
     .itemContainer {
       display: flex;
       align-items: center;
       margin-left: 40px;
+      &:hover {
+        color: $mainDarkColor;
+        transition: all 2s ease;
+      }
       span {
         font-size: 15px;
         font-weight: 500;
         margin-left: 10px;
+        cursor: context-menu;
+
         .link {
+          transition: all 2s ease;
           text-decoration: none;
-          color: black;
+          color: $mainColor;
+          &:hover {
+            color: $mainDarkColor;
+          }
         }
+        .activeLink {
+          transition: all 2s ease;
+          color: $secondaryColor;
+        }
+      }
+      .icon {
+        font-size: 20px;
       }
     }
     .right {
@@ -49,6 +75,7 @@
         justify-content: space-between;
         width: 32px;
         height: 25px;
+        overflow: hidden;
         cursor: pointer;
         span {
           width: 100%;
@@ -62,18 +89,19 @@
   }
   &.active {
     background-color: $mainColor;
-    color: white;
+    color: $secondaryColor;
+
     .hamburger {
       span {
         &:first-child {
-          background-color: white;
+          background-color: $secondaryColor;
           transform: rotate(45deg);
         }
         &:nth-child(2) {
           opacity: 0;
         }
         &:last-child {
-          background-color: white;
+          background-color: $secondaryColor;
           transform: rotate(-45deg);
         }
       }
